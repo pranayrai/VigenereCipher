@@ -26,10 +26,15 @@
 	<div class="bg-contact100" style="background-image: url('https://media.giphy.com/media/BjILuRhWMnBaU/source.gif');">
 		<div class="container-contact100" style="background-color: #85000000;">
 			<div class="wrap-contact100">
-				<div class="contact100-pic js-tilt" data-tilt>
+				<form action="/" method="GET" style="margin-top:-70px; margin-left:-70px;">
+                    <div class="btn">
+                        <button type="submit" class="contact100-form-btn"><i class="fa fa-home" aria-hidden="true"></i></button>
+                    </div>
+				<div class="contact100-pic js-tilt" data-tilt style="margin-top: 30px;">
 					<img src="https://media.giphy.com/media/fdkbq4UIYpRMk/giphy.gif" alt="IMG">
 				</div>
 
+                </form>
 				<form class="contact100-form validate-form" role="form" action="/crack" method="POST">
 					<span class="contact100-form-title">
 						CRACK VIGENERE CIPHER
@@ -73,6 +78,7 @@
                          <p>{{i}}</p>
                         {% endfor %}
                         {% endif %}
+                </form>
 
 
 
