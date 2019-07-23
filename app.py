@@ -1,6 +1,6 @@
 from flask import Flask, request, render_template
 import vigenere_cipher
-from genetic_algorithm import run_genetic_algorithm
+from genetic_algorithm import run_genetic_algorithm, decrypt_with_suitable_keywords
 
 app = Flask(__name__)
 
@@ -32,7 +32,8 @@ def ga():
         num_of_generations = int(request.form['generations'])
         data = run_genetic_algorithm(key_length=key_length, cipher_text=cipher_text, number_of_generations=num_of_generations)
         data.append(cipher_text)
-        return render_template('crack.html', data=data)
+        data3 = decrypt_with_suitable_keywords(cipher_text)
+        return render_template('crack.html', data=data, data3=data3)
     return render_template('crack.html')
 
 if __name__ == '__main__':

@@ -15,6 +15,8 @@ import pandas as pd
 
 # loading the fitness before calculating fitness_score
 fitness = ngram_score('english_quadgrams.txt')
+ct=""
+kList=""
 
 def generate_random_keys(number_of_keys, key_length):
     """
@@ -73,6 +75,8 @@ def run_genetic_algorithm(key_length, cipher_text, number_of_generations=100, mu
             - apply crossover, mutation, sort top keys
         finally return decrypted text using that top 1 sorted key with highest fitness score
     """
+    global ct
+    ct = cipher_text
     some_keywords_list = []
     lst = generate_random_keys(number_of_keys=7000, key_length=key_length)
     sorted_keywords = top_suitable_keywords(number_of_items=600, keywords_with_fitness_scores=keywords_and_suitability_score(lst, cipher_text))
@@ -83,7 +87,7 @@ def run_genetic_algorithm(key_length, cipher_text, number_of_generations=100, mu
         sorted_keywords = top_suitable_keywords(number_of_items=30, keywords_with_fitness_scores=keywords_and_suitability_score(lst, cipher_text))
         if m % 5 == 0:
             some_keywords_list.append(sorted_keywords)
-        print(sorted_keywords)
+        #print(sorted_keywords)
     return [decrypt(cipher_text, keyword=sorted_keywords[0]), some_keywords_list]
 
 def keywords_and_suitability_score(keywords, cipher_text):
@@ -97,13 +101,24 @@ def keywords_and_suitability_score(keywords, cipher_text):
         key_fitness_scores.append(fitness_score(decrypt(ciphertext=cipher_text, keyword=i).upper())) 
     return [keywords, key_fitness_scores]
 
+def decrypt_with_suitable_keywords(CText):
+    mylist = []
+    for i in kList:
+        mylist.append(decrypt(CText, i))
+    data3 = dict(zip(kList, mylist))
+    return data3
+
 def top_suitable_keywords(number_of_items, keywords_with_fitness_scores):
     """
         creating pandas dataframe with keywords and fitness_scores column
         return keywords with top fitness_scores
     """
+    global kList
     df = pd.DataFrame(data={'keywords': keywords_with_fitness_scores[0], 'fitness_scores': keywords_with_fitness_scores[1]})
     sorted_df = df.sort_values(by=['fitness_scores'], ascending=False)
+    #data2 = decrypt_with_suitable_keywords(ct)
+    kList = keywords_with_fitness_scores[0]
+    #print(keywords_with_fitness_scores)
     return list(sorted_df['keywords'])[:number_of_items]
 
 def pair_keywords(keywords_list):
