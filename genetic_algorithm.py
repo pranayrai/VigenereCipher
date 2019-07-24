@@ -1,8 +1,3 @@
-"""
-    Using Genetic Algorithm (GA) to crack Polyalphabetic Cipher (Vigenere)
-    Author: Sadip Giri (sadipgiri@bennington.edu)
-    Date: 27th Nov. 2018 
-"""
 
 import random
 import string

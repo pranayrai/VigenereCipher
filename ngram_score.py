@@ -1,8 +1,3 @@
-"""
-    fitness_score of text using n-gram statistics (probabilities)
-    Used quadgram corpus from Practical Cryptography website by James Lyons which is cited below
-    Date: 29th Nov. 2018
-"""
 
 from math import log10
 

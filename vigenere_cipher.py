@@ -1,8 +1,4 @@
-"""
-    encrypt and decrypt Vigenere Cipher
-    Author: Sadip Giri (sadipgiri@bennington.edu)
-    Date: 31th Oct. 2018
-"""
+
 
 from cryptography_algebra import convert_sentence_to_np_array_of_numbers, convert_np_array_numbers_to_sentence, maintain_length_of_keyword_with_plaintext
 # from genetic_algorithm import run_genetic_algorithm

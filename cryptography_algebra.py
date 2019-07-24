@@ -1,8 +1,3 @@
-"""
-    cryptography algebra is a helper python3 program to count frequencies of alphabets, calculate index of coincidence, guess length of Vigenere cipher keyword
-    Author: Sadip Giri (sadipgiri@bennington.edu)
-    Date: 31th Oct. 2018
-"""
 
 from global_variables import eng_alphabets, alphabets_to_values, values_to_alphabets
 import numpy as np
