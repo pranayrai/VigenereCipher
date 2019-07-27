@@ -1,4 +1,12 @@
 
+"""
+    Citation:
+        Title: Quadgram Statistics as a Fitness Measure
+        Author: James Lyons
+        Date: 2009-2012
+        Availability: http://practicalcryptography.com
+"""
+
 from math import log10
 
 class ngram_score(object):
@@ -29,14 +37,6 @@ class ngram_score(object):
             else:
                 score += self.floor
         return score
-
-"""
-    Citation:
-        Title: Quadgram Statistics as a Fitness Measure
-        Author: James Lyons
-        Date: 2009-2012
-        Availability: http://practicalcryptography.com
-"""
     
 
 

@@ -7,7 +7,7 @@ def freq_count(sentence):
     '''
         convert all alphabets of a sentence to lowercase letter
         count each of them in the sentence
-        make a dictionary of alphabets with frequencies 
+        returns a dictionary of alphabets with frequencies
     '''
     freq_dict = {}
     lower_case_sentence = sentence.lower()
